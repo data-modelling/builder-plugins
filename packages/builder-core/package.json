@@ -1,6 +1,6 @@
 {
   "name": "@builder-plugins/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Builder helpers",
   "author": "Tero <tero@prifina.com>",
   "license": "MIT",
@@ -37,5 +37,6 @@
     "react-dom": "^15.0.0 || ^16.0.0",
     "styled-components": "^5.1.0",
     "styled-system": "^5.1.5"
-  }
+  },
+  "gitHead": "31ddfd10b72b6dc1ae3b50802908599c9292dca0"
 }

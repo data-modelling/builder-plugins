@@ -1,4 +1,4 @@
 
 //import  {JsonView} from './JsonView';
 
-export {default} from './JsonView';
+export {JsonViewPlugin} from './JsonViewPlugin';

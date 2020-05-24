@@ -1,5 +1,5 @@
 {
-  "name": "@builder/core",
+  "name": "@builder-plugins/core",
   "version": "1.0.0",
   "description": "Builder helpers",
   "author": "Tero <tero@prifina.com>",

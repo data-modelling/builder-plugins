@@ -15,5 +15,3 @@ import {default as JsonView} from '@builder/json-view'
 - theme
 - schema 
 - ...props
-
-[json-view]: https://github.com/data-modelling/builder-plugins/packages/json-view

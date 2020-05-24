@@ -4,6 +4,9 @@
   "description": "GraphQL schema JSON view",
   "author": "Tero <tero@prifina.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/esm/index.js",
   "files": [
     "dist"
@@ -33,5 +36,5 @@
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
-  "gitHead": "31ddfd10b72b6dc1ae3b50802908599c9292dca0"
+  "gitHead": "81102e84525ab1da778437cf5258afd6b2bb5ad3"
 }

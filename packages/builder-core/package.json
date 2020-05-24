@@ -6,7 +6,7 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-   },
+  },
   "main": "dist/esm/index.js",
   "files": [
     "dist"

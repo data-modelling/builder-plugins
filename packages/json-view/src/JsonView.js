@@ -1,14 +1,16 @@
 import React from "react";
-import {useHistory} from "react-router-dom";
+import ReactJson from 'react-json-view';
 
 const JsonView=({theme={},schema={},...props}) =>{
-    const history = useHistory();
-  
-
+    
+    const exportData = new Blob([ JSON.stringify(schema) ], { type: 'application/json' });
+    const exportUrl = window.URL.createObjectURL(exportData);
     return (
         <React.Fragment>
-       <div>JSON VIEW</div>
-       <pre>{JSON.stringify(schema)}</pre>
+            <div style={{"margin-top":"20px","margin-bottom":"20px"}}>
+            <a href={exportUrl} target="_blank"  download="schema.json" rel="noopener noreferrer" style={{"font-size":"16px"}}>Export</a>
+            </div>
+             <ReactJson src={schema} collapsed={false}/>
        </React.Fragment>
         
     )    

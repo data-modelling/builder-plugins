@@ -1,6 +1,6 @@
 {
   "name": "@builder-plugins/json-view",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "GraphQL schema JSON view",
   "author": "Tero <tero@prifina.com>",
   "license": "MIT",

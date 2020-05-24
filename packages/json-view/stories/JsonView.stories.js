@@ -1,8 +1,8 @@
 import React from 'react';
-import {JsonView} from '../src/JsonView'
+import {default as JsonView} from '../src/JsonView'
 export default { title: 'JsonView' };
 const theme={}
-const schema={}
+const schema={"test":"Testing"}
 export const view = () => <JsonView theme={theme} schema={schema} />;
 
 view.story={

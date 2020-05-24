@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactRouterDom = require("react-router-dom");
+var _reactJsonView = _interopRequireDefault(require("react-json-view"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -22,8 +22,27 @@ var JsonView = function JsonView(_ref) {
       schema = _ref$schema === void 0 ? {} : _ref$schema,
       props = _objectWithoutProperties(_ref, ["theme", "schema"]);
 
-  var history = (0, _reactRouterDom.useHistory)();
-  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("div", null, "JSON VIEW"), /*#__PURE__*/_react["default"].createElement("pre", null, JSON.stringify(schema)));
+  var exportData = new Blob([JSON.stringify(schema)], {
+    type: 'application/json'
+  });
+  var exportUrl = window.URL.createObjectURL(exportData);
+  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("div", {
+    style: {
+      "margin-top": "20px",
+      "margin-bottom": "20px"
+    }
+  }, /*#__PURE__*/_react["default"].createElement("a", {
+    href: exportUrl,
+    target: "_blank",
+    download: "schema.json",
+    rel: "noopener noreferrer",
+    style: {
+      "font-size": "16px"
+    }
+  }, "Export")), /*#__PURE__*/_react["default"].createElement(_reactJsonView["default"], {
+    src: schema,
+    collapsed: false
+  }));
 };
 
 JsonView.__docgenInfo = {

@@ -7,7 +7,7 @@ yarn add @builder-plugins/json-view
 ```
 
 ```jsx
-import {default as JsonView} from '@builder/json-view'
+import {default as JsonView} from '@builder-plugins/json-view'
 ```
 
 ## Props

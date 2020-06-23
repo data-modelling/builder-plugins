@@ -612,7 +612,7 @@ class Visualizations extends Component {
     const { schema: schemaJSON, theme } = props;
 
     viewHeight =
-      window.innerHeight - parseInt(props.theme.dashboard.header.height);
+      window.innerHeight - parseInt(props.theme.dashboard.header.height) - 8;
     viewWidth =
       window.innerWidth -
       parseInt(props.theme.dashboard.sidebar.left.width) -

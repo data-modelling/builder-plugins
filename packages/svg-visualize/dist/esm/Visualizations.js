@@ -629,7 +629,7 @@ var Visualizations = /*#__PURE__*/function (_Component) {
     _this.getRectsInterval = undefined;
     var schemaJSON = props.schema,
         theme = props.theme;
-    viewHeight = window.innerHeight - parseInt(props.theme.dashboard.header.height);
+    viewHeight = window.innerHeight - parseInt(props.theme.dashboard.header.height) - 8;
     viewWidth = window.innerWidth - parseInt(props.theme.dashboard.sidebar.left.width) - 24; //24===gap+shadow
     //console.log(schemaJson);
 

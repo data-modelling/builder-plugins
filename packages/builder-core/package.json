@@ -1,6 +1,6 @@
 {
   "name": "@builder-plugins/core",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Builder helpers",
   "author": "Tero <tero@prifina.com>",
   "license": "MIT",

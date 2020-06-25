@@ -544,9 +544,9 @@ function createSVG(schemaTables) {
 
     if (scalarTables.length > 0) {
       tblOrder.push(JSON.parse(JSON.stringify(scalarTables)));
-    } //console.log("TBL ORDER", tblOrder);
-    // check col heights....
+    }
 
+    console.log("TBL ORDER", tblOrder, types); // check col heights....
 
     colIndex = 0;
     var loop = true;
@@ -557,8 +557,8 @@ function createSVG(schemaTables) {
       firstTbl = true;
 
       for (var _i = 0; _i < tblOrder[colIndex].length; _i++) {
-        var tt = tblOrder[colIndex][_i]; //console.log("TT", tt);
-
+        var tt = tblOrder[colIndex][_i];
+        console.log("TT", tt, types[tt]);
         colHeight += types[tt].height + tblRowMargin / 2;
 
         if (colHeight > maxHeight && !firstTbl) {

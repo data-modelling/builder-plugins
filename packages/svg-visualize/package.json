@@ -1,6 +1,6 @@
 {
   "name": "@builder-plugins/svg-visualize",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "GraphQL schema visualization",
   "author": "Tero <tero@prifina.com>",
   "license": "MIT",

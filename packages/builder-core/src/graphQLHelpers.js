@@ -62,7 +62,7 @@ export const emptySchema = () => {
 export function getTypes(schema) {
   //const ignoreTypes=["Query","Mutation","Subscription","__Schema","__Type","__TypeKind","__Field","__InputValue","__EnumValue","__Directive","__DirectiveLocation"];
   const ignoreTypes = ["Query", "Mutation", "Subscription"];
-  console.log("GET TYPES ", Object.keys(schema));
+  //console.log("GET TYPES ", Object.keys(schema));
   let _existingTypes = [];
   if (
     typeof schema["data"] !== "undefined" &&
@@ -70,7 +70,7 @@ export function getTypes(schema) {
     schema["data"]["__schema"].types.length > 0
   ) {
     schema["data"]["__schema"].types.forEach((t, ii) => {
-      console.log("TYPE ", ii);
+      //console.log("TYPE ", ii);
       if (
         t.kind !== "SCALAR" &&
         !t.name.startsWith("__") &&

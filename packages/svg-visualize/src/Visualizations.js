@@ -534,7 +534,7 @@ function createSVG(schemaTables) {
       tblOrder.push(JSON.parse(JSON.stringify(scalarTables)));
     }
 
-    //console.log("TBL ORDER", tblOrder);
+    console.log("TBL ORDER", tblOrder, types);
 
     // check col heights....
     colIndex = 0;
@@ -547,7 +547,7 @@ function createSVG(schemaTables) {
 
       for (let i = 0; i < tblOrder[colIndex].length; i++) {
         const tt = tblOrder[colIndex][i];
-        //console.log("TT", tt);
+        console.log("TT", tt, types[tt]);
 
         colHeight += types[tt].height + tblRowMargin / 2;
         if (colHeight > maxHeight && !firstTbl) {

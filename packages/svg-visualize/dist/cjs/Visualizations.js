@@ -64,6 +64,7 @@ var SvgPanZoom = require("svg-pan-zoom");
 
 var PF = require("pathfinding");
 
+var panZoom = undefined;
 var titleHeight = 42;
 var tblColMargin = 150;
 var tblRowMargin = 200;
@@ -1213,7 +1214,7 @@ var Visualizations = /*#__PURE__*/function (_Component) {
           //console.log('SCHEMA TYPES ',schemaTypes);
 
 
-          var panZoom = SvgPanZoom("#svg-container", {
+          panZoom = SvgPanZoom("#svg-container", {
             viewportSelector: "#svg-group",
             zoomEnabled: true,
             controlIconsEnabled: true,
@@ -1258,6 +1259,7 @@ var Visualizations = /*#__PURE__*/function (_Component) {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       clearInterval(this.getRectsInterval);
+      panZoom.destroy(); //delete panZoom;
     }
   }, {
     key: "componentDidUpdate",

@@ -9,6 +9,8 @@ import styled, { css } from "styled-components";
 const SvgPanZoom = require("svg-pan-zoom");
 const PF = require("pathfinding");
 
+let panZoom = undefined;
+
 let titleHeight = 42;
 let tblColMargin = 150;
 let tblRowMargin = 200;
@@ -1186,7 +1188,7 @@ class Visualizations extends Component {
         */
         //console.log('SCHEMA TYPES ',schemaTypes);
 
-        const panZoom = SvgPanZoom("#svg-container", {
+        panZoom = SvgPanZoom("#svg-container", {
           viewportSelector: "#svg-group",
           zoomEnabled: true,
           controlIconsEnabled: true,
@@ -1233,6 +1235,9 @@ class Visualizations extends Component {
 
   componentWillUnmount() {
     clearInterval(this.getRectsInterval);
+
+    panZoom.destroy();
+    //delete panZoom;
   }
 
   componentDidUpdate() {

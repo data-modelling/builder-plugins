@@ -618,7 +618,7 @@ class Visualizations extends Component {
       parseInt(props.theme.dashboard.sidebar.left.width) -
       24; //24===gap+shadow
     //console.log(schemaJson);
-
+    //console.log("BEFORE GET TYPES ", typeof schemaJSON);
     const _schemaTypes = getTypes(schemaJSON);
     //onsole.log(_schemaTypes);
     for (let t = 0; t < _schemaTypes.length; t++) {
@@ -716,7 +716,7 @@ class Visualizations extends Component {
       _viewFactor = Math.ceil(this.state.schemaTables.length / 10);
       tblColMargin += _viewFactor * 70;
       tblRowMargin += _viewFactor * 40;
-      viewFactor = Math.max(viewFactor._viewFactor);
+      viewFactor = Math.max(viewFactor, _viewFactor);
     }
   }
 

@@ -3662,11 +3662,6 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-builder-core@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/builder-core/-/builder-core-0.0.0.tgz#3bb6181245f86998398222e4c4cf424864f781dc"
-  integrity sha1-O7YYEkX4aZg5giLkxM9CSGT3gdw=
-
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"

@@ -3,6 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getTypes = getTypes;
+exports.getTypeIndex = getTypeIndex;
 exports.emptySchema = exports.Schema = void 0;
 
 var _graphql = require("graphql");
@@ -16,7 +18,7 @@ var _schemaPrinter = require("graphql/utilities/schemaPrinter");
 //const { buildSchema, graphqlSync, introspectionQuery,buildClientSchema,printSchema } = require("graphql");
 var Schema = new _graphql.GraphQLSchema({
   query: new _graphql.GraphQLObjectType({
-    name: 'Query',
+    name: "Query",
     description: "DEFAULT_SCHEMA",
     fields: {
       defaultSchema: {
@@ -25,7 +27,7 @@ var Schema = new _graphql.GraphQLSchema({
     }
   }),
   mutation: new _graphql.GraphQLObjectType({
-    name: 'Mutation',
+    name: "Mutation",
     description: "DEFAULT_SCHEMA",
     fields: {
       defaultSchema: {
@@ -34,7 +36,7 @@ var Schema = new _graphql.GraphQLSchema({
     }
   }),
   subscription: new _graphql.GraphQLObjectType({
-    name: 'Subscription',
+    name: "Subscription",
     description: "DEFAULT_SCHEMA",
     fields: {
       defaultSchema: {
@@ -54,48 +56,35 @@ var emptySchema = function emptySchema() {
       console.log(response);
       resolve(response);
     })["catch"](function (err) {
-      console.log('ERR ', err);
+      console.log("ERR ", err);
       reject(err);
     });
   });
 };
-/*
-/*
-graphql(schema, '{ hello }', root).then((response) => {
-  console.log(response);
-});
-*/
-//export const emptySchema = printIntrospectionSchema(Schema);
-
-/*
-const sdlString = `
-  """ DEFAULT_SCHEMA """  
-  type Query {
-    defaultSchema: String
-  }
-  """ DEFAULT_SCHEMA """  
-  type Mutation {
-    defaultSchema: String
-  }
-  """ DEFAULT_SCHEMA """    
-  type Subscription {
-    defaultSchema: String
-  }
-`;
-
-const graphqlSchemaObj = buildSchema(sdlString);
-
-export function jsonToSDL(json) {
-    const schemaObj = buildClientSchema(json.data);
-    const sdl = printSchema(schemaObj);
-    return sdl;
-}
-export function sdlToJSON(sdl) {
-    const schemaObj = buildSchema(sdl);
-    return graphqlSync(schemaObj, introspectionQuery);
-}
-export const emptySchema = graphqlSync(graphqlSchemaObj, introspectionQuery).data;
-*/
-
 
 exports.emptySchema = emptySchema;
+
+function getTypes(schema) {
+  //const ignoreTypes=["Query","Mutation","Subscription","__Schema","__Type","__TypeKind","__Field","__InputValue","__EnumValue","__Directive","__DirectiveLocation"];
+  var ignoreTypes = ["Query", "Mutation", "Subscription"];
+  console.log("GET TYPES ", Object.keys(schema));
+  var _existingTypes = [];
+
+  if (typeof schema["data"] !== "undefined" && typeof schema["data"]["__schema"].types !== "undefined" && schema["data"]["__schema"].types.length > 0) {
+    schema["data"]["__schema"].types.forEach(function (t, ii) {
+      console.log("TYPE ", ii);
+
+      if (t.kind !== "SCALAR" && !t.name.startsWith("__") && ignoreTypes.indexOf(t.name) === -1) {
+        _existingTypes.push(t.name);
+      }
+    });
+  }
+
+  return _existingTypes;
+}
+
+function getTypeIndex(_types, _name) {
+  return _types.findIndex(function (n) {
+    return n.name === _name;
+  });
+}

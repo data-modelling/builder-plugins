@@ -67,10 +67,13 @@ exports.emptySchema = emptySchema;
 function getTypes(schema) {
   //const ignoreTypes=["Query","Mutation","Subscription","__Schema","__Type","__TypeKind","__Field","__InputValue","__EnumValue","__Directive","__DirectiveLocation"];
   var ignoreTypes = ["Query", "Mutation", "Subscription"];
+  console.log("GET TYPES ", Object.keys(schema));
   var _existingTypes = [];
 
   if (typeof schema["data"] !== "undefined" && typeof schema["data"]["__schema"].types !== "undefined" && schema["data"]["__schema"].types.length > 0) {
-    schema["data"]["__schema"].types.forEach(function (t) {
+    schema["data"]["__schema"].types.forEach(function (t, ii) {
+      console.log("TYPE ", ii);
+
       if (t.kind !== "SCALAR" && !t.name.startsWith("__") && ignoreTypes.indexOf(t.name) === -1) {
         _existingTypes.push(t.name);
       }
@@ -85,40 +88,3 @@ function getTypeIndex(_types, _name) {
     return n.name === _name;
   });
 }
-/*
-  /*
-  graphql(schema, '{ hello }', root).then((response) => {
-    console.log(response);
-  });
-  */
-//export const emptySchema = printIntrospectionSchema(Schema);
-
-/*
-const sdlString = `
-  """ DEFAULT_SCHEMA """  
-  type Query {
-    defaultSchema: String
-  }
-  """ DEFAULT_SCHEMA """  
-  type Mutation {
-    defaultSchema: String
-  }
-  """ DEFAULT_SCHEMA """    
-  type Subscription {
-    defaultSchema: String
-  }
-`;
-
-const graphqlSchemaObj = buildSchema(sdlString);
-
-export function jsonToSDL(json) {
-    const schemaObj = buildClientSchema(json.data);
-    const sdl = printSchema(schemaObj);
-    return sdl;
-}
-export function sdlToJSON(sdl) {
-    const schemaObj = buildSchema(sdl);
-    return graphqlSync(schemaObj, introspectionQuery);
-}
-export const emptySchema = graphqlSync(graphqlSchemaObj, introspectionQuery).data;
-*/

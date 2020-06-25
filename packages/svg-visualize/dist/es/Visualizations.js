@@ -632,6 +632,7 @@ var Visualizations = /*#__PURE__*/function (_Component) {
     viewHeight = window.innerHeight - parseInt(props.theme.dashboard.header.height) - 8;
     viewWidth = window.innerWidth - parseInt(props.theme.dashboard.sidebar.left.width) - 24; //24===gap+shadow
     //console.log(schemaJson);
+    //console.log("BEFORE GET TYPES ", typeof schemaJSON);
 
     var _schemaTypes = (0, _core.getTypes)(schemaJSON); //onsole.log(_schemaTypes);
 
@@ -720,7 +721,7 @@ var Visualizations = /*#__PURE__*/function (_Component) {
       _viewFactor = Math.ceil(_this.state.schemaTables.length / 10);
       tblColMargin += _viewFactor * 70;
       tblRowMargin += _viewFactor * 40;
-      viewFactor = Math.max(viewFactor._viewFactor);
+      viewFactor = Math.max(viewFactor, _viewFactor);
     }
 
     return _this;

@@ -735,11 +735,12 @@ class Visualizations extends Component {
     }
     maxTypeX += tblColMargin;
     maxTypeY += tblRowMargin;
-    if (maxTypeY > viewHeight) {
+    if (maxTypeY > viewHeight || maxTypeX > viewWidth) {
       //10
-      const newSquareSize = Math.ceil(maxTypeX / viewHeight);
-      console.log("MATRIX SQUARE ", newSquareSize);
-      squareSize = newSquareSize * 10;
+      //const newSquareSize = Math.ceil(maxTypeX / viewHeight);
+      //console.log("MATRIX SQUARE ", newSquareSize);
+      //squareSize = newSquareSize * 10;
+      squareSize = viewFactor * squareSize;
     }
 
     console.log("SIZE ", maxTypeX, viewWidth, maxTypeY, viewHeight);

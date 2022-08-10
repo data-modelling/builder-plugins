@@ -29,7 +29,8 @@
     "prettier:check": "prettier --check ."
   },
   "dependencies": {
-    "react-json-view": "^1.21.3"
+    "react-json-view": "^1.21.3",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

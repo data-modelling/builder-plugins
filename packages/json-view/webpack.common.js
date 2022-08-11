@@ -47,6 +47,13 @@ module.exports = {
       exposes: {
         "./App": "./src/App",
       },
+      shared: 
+        {
+          react: {},
+          "react-dom":{}
+        }
+      
+      /*
       shared: [
         
         {
@@ -55,6 +62,7 @@ module.exports = {
         },
         
       ],
+      */
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

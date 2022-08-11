@@ -42,12 +42,14 @@ const MyComponent = ({ title }) => {
 export default function JsonViewPlugin(props) {
   //const location = useLocation();
  
+
   const navigate=useNavigate();
- console.log("PLUGIN ",location);
+ console.log("PLUGIN ",location,React.version);
     const exportData = new Blob([ JSON.stringify(props.schema) ], { type: 'application/json' });
     const exportUrl = window.URL.createObjectURL(exportData);
     return (
         <>
+        <div>Plugin version {React.version}</div>
         <button onClick={()=>{
           navigate("/route-bb",{replace:true})
         }}>NAV TO /route-bb</button>

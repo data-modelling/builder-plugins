@@ -48,10 +48,12 @@ module.exports = {
         "./App": "./src/App",
       },
       shared: [
+        /*
         {
           react: { singleton: true, requiredVersion: deps['react'] },
           "react-dom/client": { singleton: true,requiredVersion: deps['react-dom'] },
         },
+        */
       ],
     }),
     new HtmlWebpackPlugin({

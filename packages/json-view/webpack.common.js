@@ -3,7 +3,7 @@ const ModuleFederationPlugin =
   require("webpack").container.ModuleFederationPlugin;
 const webpack = require("webpack");
 
-const deps = require('./package.json').peerDependencies;
+const deps = require('./package.json').dependencies;
 
 module.exports = {
   module: {
@@ -48,12 +48,12 @@ module.exports = {
         "./App": "./src/App",
       },
       shared: [
-        /*
+        
         {
           react: { singleton: true, requiredVersion: deps['react'] },
           "react-dom/client": { singleton: true,requiredVersion: deps['react-dom'] },
         },
-        */
+        
       ],
     }),
     new HtmlWebpackPlugin({

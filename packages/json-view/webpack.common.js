@@ -49,8 +49,10 @@ module.exports = {
       },
       shared: 
         {
+          ...deps,
           react: {},
-          "react-dom":{}
+          "react-dom/client": {}
+
         }
       
       /*
